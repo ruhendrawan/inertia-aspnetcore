@@ -30,11 +30,19 @@ namespace Tests.Unit
         }
 
         [Fact]
-        public void CheckInertiaRequest()
+        public void CheckActionContextIsInertiaRequest()
         {
             _actionContext.HttpContext.Request.Headers.Add("X-Inertia", "true");
 
             Assert.True(_actionContext.IsInertiaRequest());
+        }
+
+        [Fact]
+        public void CheckHttpContextIsInertiaRequest()
+        {
+            _actionContext.HttpContext.Request.Headers.Add("X-Inertia", "true");
+
+            Assert.True(_actionContext.HttpContext.IsInertiaRequest());
         }
 
         [Fact]
