@@ -36,6 +36,16 @@ namespace Tests.Unit
             Assert.Equal(200, _actionContext.HttpContext.Response.StatusCode);
         }
 
+
+        [Fact]
+        public void SetCorrect409Response()
+        {
+            _actionContext.HttpContext.Configure409Response();
+
+            Assert.NotEmpty(_actionContext.HttpContext.Response.Headers["X-Inertia-Location"]);
+            Assert.Equal(409, _actionContext.HttpContext.Response.StatusCode);
+        }
+
         [Fact]
         public void CheckObjectIsLazy()
         {

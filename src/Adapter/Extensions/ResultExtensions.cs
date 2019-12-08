@@ -1,5 +1,10 @@
-﻿using Microsoft.AspNetCore.Http.Extensions;
+﻿using Adapter.Interfaces;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +13,9 @@ namespace Adapter.Extensions
 {
     internal static class ResultExtensions
     {
+        internal static IResultFactory ResultFactory(this IApplicationBuilder app) =>
+            app.NotNull().ApplicationServices.GetRequiredService<IResultFactory>();
+
         internal static string ComponentName(this ActionContext? ac) =>
             ac.NotNull().HttpContext.Request.Headers["X-Inertia-Partial-Component"];
 
@@ -25,9 +33,19 @@ namespace Adapter.Extensions
             ac.NotNull().HttpContext.Response.StatusCode = 200;
         }
 
+        internal static HttpResponse Configure409Response(this HttpContext hc)
+        {
+            hc.Response.Headers.Add("X-Inertia-Location", hc.Request.GetEncodedPathAndQuery());
+            hc.Response.StatusCode = 409;
+
+            return hc.Response;
+        }
+
         internal static string RequestedUrl(this ActionContext? ac) =>
             Uri.UnescapeDataString(ac.NotNull().HttpContext.Request.GetEncodedPathAndQuery());
 
+        internal static ITempDataDictionary TempData(this IApplicationBuilder ab, HttpContext hc) =>
+            ab.ApplicationServices.GetService<ITempDataDictionaryFactory>().GetTempData(hc);
 
         internal static IList<string> GetPartialData(this ActionContext? ac) =>
             ac

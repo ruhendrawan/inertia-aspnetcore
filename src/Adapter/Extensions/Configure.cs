@@ -1,8 +1,5 @@
-﻿using Adapter.Interfaces;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http.Extensions;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,41 +10,37 @@ namespace Adapter.Extensions
     {
         public static IApplicationBuilder UseInertia(this IApplicationBuilder app)
         {
-            Inertia.Init(app.NotNull().ApplicationServices.GetRequiredService<IResultFactory>());
+            Inertia.Init(app.ResultFactory());
 
+            app.UseWhen(IsNewVersion, RefreshVersion());
 
-            app.UseWhen(context => context.IsInertiaRequest()
-                                   && context.Request.Method == "GET" &&
-                                   context.Request.Headers["X-Inertia-Version"] != Inertia.GetVersion(),
-                Handler1());
-
-            app.UseWhen(context => context.IsInertiaRequest()
-                                   && new[] { "PATCH", "PUT", "DELETE" }.Contains(context.Request.Method), Handler2);
-
+            app.UseWhen(IsNotRedirect, Redirect());
 
             return app;
         }
 
-        private static Action<IApplicationBuilder> Handler1()
-        {
-            return app => app.Run(async context =>
+        private static bool IsNotRedirect(HttpContext hc) =>
+            hc.IsInertiaRequest() &&
+            new[] { "PATCH", "PUT", "DELETE" }.Contains(hc.Request.Method);
+
+        private static bool IsNewVersion(HttpContext hc) =>
+            hc.IsInertiaRequest() &&
+            hc.Request.Method == "GET" &&
+            hc.Request.Headers["X-Inertia-Version"] != Inertia.GetVersion();
+
+        private static Action<IApplicationBuilder> RefreshVersion() =>
+            app => app.Run(async context =>
             {
-                var temData = app.ApplicationServices.GetService<ITempDataDictionaryFactory>()
-                    .GetTempData(context);
+                var temData = app.TempData(context);
 
                 if (temData.Count > 0)
                     temData.Keep();
 
-                context.Response.Headers.Add("X-Inertia-Location", context.Request.GetDisplayUrl());
-                context.Response.StatusCode = 409;
-
-                await context.Response.CompleteAsync();
+                await context.Configure409Response().CompleteAsync();
             });
-        }
 
-        private static void Handler2(IApplicationBuilder app)
-        {
-            app.Use(async (context, next) =>
+        private static Action<IApplicationBuilder> Redirect() =>
+            app => app.Use(async (context, next) =>
             {
                 context.Response.OnStarting(() =>
                 {
@@ -56,8 +49,7 @@ namespace Adapter.Extensions
                     return Task.CompletedTask;
                 });
 
-                await next.Invoke();
+                await next();
             });
-        }
     }
 }
