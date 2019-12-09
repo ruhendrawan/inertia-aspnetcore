@@ -3,13 +3,13 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <Nullable>enable</Nullable>
-    <Version>0.0.2</Version>
+    <Version>0.0.3</Version>
     <PackageId>INERTIAJS.ASPNETCORE.ADAPTER</PackageId>
     <Authors>AndySong</Authors>
     <Description>The AspNetCore adapter for Inertia.js. https://inertiajs.com</Description>
     <PackageProjectUrl></PackageProjectUrl>
-    <RepositoryUrl></RepositoryUrl>
-    <RepositoryType>https://github.com/Nothing-Works/inertia-aspnetcore</RepositoryType>
+    <RepositoryUrl>https://github.com/Nothing-Works/inertia-aspnetcore</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageTags>AspNetCore, Inertia.js, Adapter</PackageTags>
   </PropertyGroup>
