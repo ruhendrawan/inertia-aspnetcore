@@ -1,4 +1,5 @@
 ﻿using Adapter.Core;
+using Microsoft.AspNetCore.Html;
 using System;
 
 namespace Adapter.Interfaces
@@ -14,6 +15,8 @@ namespace Adapter.Interfaces
         void Version(Func<string> version);
 
         string? GetVersion();
+
+        IHtmlContent Html(dynamic model);
 
         Result Render(string component, object controller);
     }

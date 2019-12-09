@@ -14,7 +14,7 @@ namespace Adapter.Extensions
             obj?.GetType().GetProperty(propertyName)?.GetValue(obj, null) ??
             throw new NullReferenceException();
 
-        public static bool IsInertiaRequest(this HttpContext? hc) =>
+        internal static bool IsInertiaRequest(this HttpContext? hc) =>
             bool.TryParse(hc.NotNull().Request.Headers["X-Inertia"], out _);
 
         internal static bool IsInertiaRequest(this ActionContext? ac) =>

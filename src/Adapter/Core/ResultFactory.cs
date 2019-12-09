@@ -1,6 +1,8 @@
 ﻿using Adapter.Interfaces;
 using Adapter.Models;
+using Microsoft.AspNetCore.Html;
 using System;
+using System.Text.Json;
 
 namespace Adapter.Core
 {
@@ -23,6 +25,14 @@ namespace Adapter.Core
                 string s => s,
                 _ => null
             };
+
+        public IHtmlContent Html(dynamic model)
+        {
+            var data = JsonSerializer.Serialize(model,
+                new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
+
+            return new HtmlString($"<div id=\"app\" data-page={data}></div>");
+        }
 
         public Result Render(string component, object controller) =>
             new Result(new Props { Controller = controller, Share = Share }, component, _rootView, GetVersion());

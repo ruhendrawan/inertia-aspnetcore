@@ -1,5 +1,6 @@
 ﻿using Adapter.Core;
 using Adapter.Interfaces;
+using Microsoft.AspNetCore.Html;
 using System;
 
 namespace Adapter
@@ -18,6 +19,8 @@ namespace Adapter
         public static void SetRootView(string s) => _factory.SetRootView(s);
 
         public static void Version(string s) => _factory.Version(s);
+
+        public static IHtmlContent Html(dynamic m) => _factory.Html(m);
 
         public static void Version(Func<string> s) => _factory.Version(s);
 
