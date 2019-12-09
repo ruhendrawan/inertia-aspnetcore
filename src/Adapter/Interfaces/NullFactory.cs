@@ -1,5 +1,5 @@
-﻿using System;
-using Microsoft.AspNetCore.Mvc;
+﻿using Adapter.Core;
+using System;
 
 namespace Adapter.Interfaces
 {
@@ -15,6 +15,6 @@ namespace Adapter.Interfaces
 
         public string GetVersion() => throw new NotImplementedException();
 
-        public IActionResult Render(string component, object controller) => throw new NotImplementedException();
+        public Result Render(string component, object controller) => throw new NotImplementedException();
     }
 }

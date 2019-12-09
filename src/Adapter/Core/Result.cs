@@ -1,14 +1,14 @@
 ﻿using Adapter.Extensions;
 using Adapter.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace Adapter.Core
 {
-    internal class Result : IActionResult
+    public class Result : IActionResult
     {
         private readonly string _component;
         private readonly Props _props;
@@ -21,13 +21,13 @@ namespace Adapter.Core
         internal Result(Props props, string component, string rootView, string? version) =>
             (_props, _component, _rootView, _version) = (props, component, rootView, version);
 
-        internal IActionResult With(object with)
+        public IActionResult With(object with)
         {
             _props.With = with;
             return this;
         }
 
-        internal IActionResult WithViewData(IDictionary<string, object> viewData)
+        public IActionResult WithViewData(IDictionary<string, object> viewData)
         {
             _viewData = viewData;
             return this;
@@ -72,7 +72,7 @@ namespace Adapter.Core
             Props = _props,
             Component = _component,
             Version = _version,
-            Url = _context.RequestedUrl()
+            Url = _context.RequestedUri()
         };
 
         private IActionResult GetResult() =>

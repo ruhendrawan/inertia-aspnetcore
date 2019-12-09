@@ -88,14 +88,14 @@ namespace Tests.Unit
         [InlineData("https://example.com/Home?q=search&s=test")]
         [InlineData("https://example.com/Home")]
         [InlineData("https://example.com/Home/Index")]
-        public void GetRequestedUrl(string str)
+        public void GetRequestedUri(string str)
         {
             var url = new Uri(str);
 
             var pathAndQuery = url.PathAndQuery;
             _actionContext.HttpContext.Request.Path = pathAndQuery;
 
-            Assert.Equal(pathAndQuery, _actionContext.RequestedUrl());
+            Assert.Equal(pathAndQuery, _actionContext.RequestedUri());
         }
     }
 }

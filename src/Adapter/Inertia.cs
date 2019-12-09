@@ -1,5 +1,5 @@
-﻿using Adapter.Interfaces;
-using Microsoft.AspNetCore.Mvc;
+﻿using Adapter.Core;
+using Adapter.Interfaces;
 using System;
 
 namespace Adapter
@@ -10,7 +10,7 @@ namespace Adapter
 
         public static void Init(IResultFactory factory) => _factory = factory;
 
-        public static IActionResult Render(string component, object controller) =>
+        public static Result Render(string component, object controller) =>
             _factory.Render(component, controller);
 
         public static string? GetVersion() => _factory.GetVersion();

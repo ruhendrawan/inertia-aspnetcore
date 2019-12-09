@@ -35,14 +35,17 @@ namespace Adapter.Extensions
 
         internal static HttpResponse Configure409Response(this HttpContext hc)
         {
-            hc.Response.Headers.Add("X-Inertia-Location", hc.Request.GetEncodedPathAndQuery());
+            hc.Response.Headers.Add("X-Inertia-Location", hc.RequestedUri());
             hc.Response.StatusCode = 409;
 
             return hc.Response;
         }
 
-        internal static string RequestedUrl(this ActionContext? ac) =>
+        internal static string RequestedUri(this ActionContext? ac) =>
             Uri.UnescapeDataString(ac.NotNull().HttpContext.Request.GetEncodedPathAndQuery());
+
+        internal static string RequestedUri(this HttpContext? hc) =>
+            Uri.UnescapeDataString(hc.NotNull().Request.GetEncodedPathAndQuery());
 
         internal static ITempDataDictionary TempData(this IApplicationBuilder ab, HttpContext hc) =>
             ab.ApplicationServices.GetService<ITempDataDictionaryFactory>().GetTempData(hc);

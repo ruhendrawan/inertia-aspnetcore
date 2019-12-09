@@ -1,5 +1,5 @@
-﻿using System;
-using Microsoft.AspNetCore.Mvc;
+﻿using Adapter.Core;
+using System;
 
 namespace Adapter.Interfaces
 {
@@ -8,13 +8,13 @@ namespace Adapter.Interfaces
         object? Share { get; set; }
 
         void SetRootView(string s);
-        
+
         void Version(string version);
-        
+
         void Version(Func<string> version);
-        
+
         string? GetVersion();
-        
-        IActionResult Render(string component, object controller);
+
+        Result Render(string component, object controller);
     }
 }

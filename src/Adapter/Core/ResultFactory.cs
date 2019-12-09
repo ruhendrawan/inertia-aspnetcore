@@ -1,6 +1,5 @@
 ﻿using Adapter.Interfaces;
 using Adapter.Models;
-using Microsoft.AspNetCore.Mvc;
 using System;
 
 namespace Adapter.Core
@@ -25,7 +24,7 @@ namespace Adapter.Core
                 _ => null
             };
 
-        public IActionResult Render(string component, object controller) =>
+        public Result Render(string component, object controller) =>
             new Result(new Props { Controller = controller, Share = Share }, component, _rootView, GetVersion());
     }
 }

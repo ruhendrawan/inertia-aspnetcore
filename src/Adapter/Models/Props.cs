@@ -1,9 +1,9 @@
 ﻿namespace Adapter.Models
 {
-    internal class Props
+    public class Props
     {
-        internal object? Controller { get; set; }
-        internal object? Share { get; set; }
-        internal object? With { get; set; }
+        public object? Controller { get; set; }
+        public object? Share { get; set; }
+        public object? With { get; set; }
     }
 }
