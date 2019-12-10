@@ -2,6 +2,11 @@
 
 Visit [inertiajs.com](https://inertiajs.com/) to learn more.
 
+# Prerequisite
+
+1. Latest SDK [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1).
+2. Create `ASP.NET Core Web App (Model-View-Controller) mvc` project.
+
 # Install
 
 one of the following options.
@@ -44,7 +49,7 @@ one of the following options.
 3. View `App.cshtml`
 
 ```html
-@using Adapter
+@using InertiaAdapter
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -54,9 +59,11 @@ one of the following options.
   </head>
   <body>
     @Inertia.Html(Model)
+
+    <!-- reference your js file. -->
     <script src="/js/app.js"></script>
   </body>
 </html>
 ```
 
-4. Compile your assets. This is really your choice,
+4. Compile your assets. This is really your choice, choose whatever option you are comfortable with. (maybe I should add sample project for Vue and React).
