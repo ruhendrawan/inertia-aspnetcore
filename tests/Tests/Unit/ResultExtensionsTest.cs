@@ -1,4 +1,4 @@
-﻿using Adapter.Extensions;
+﻿using InertiaAdapter.Extensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;

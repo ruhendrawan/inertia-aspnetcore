@@ -1,8 +1,8 @@
-﻿using Adapter.Core;
-using Adapter.Interfaces;
+﻿using InertiaAdapter.Core;
+using InertiaAdapter.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Adapter.Extensions
+namespace InertiaAdapter.Extensions
 {
     public static class ConfigureServices
     {

@@ -1,7 +1,7 @@
-﻿using Adapter.Extensions;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using InertiaAdapter.Extensions;
 using Xunit;
 
 namespace Tests.Unit

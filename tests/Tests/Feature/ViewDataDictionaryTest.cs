@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using Adapter.Core;
+﻿using InertiaAdapter.Core;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using System.Collections.Generic;
 using Xunit;
 
 namespace Tests.Feature

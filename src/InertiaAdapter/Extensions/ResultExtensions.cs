@@ -1,4 +1,4 @@
-﻿using Adapter.Interfaces;
+﻿using InertiaAdapter.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Adapter.Extensions
+namespace InertiaAdapter.Extensions
 {
     internal static class ResultExtensions
     {

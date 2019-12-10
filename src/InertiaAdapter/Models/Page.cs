@@ -1,4 +1,4 @@
-﻿namespace Adapter.Models
+﻿namespace InertiaAdapter.Models
 {
     public class Page
     {

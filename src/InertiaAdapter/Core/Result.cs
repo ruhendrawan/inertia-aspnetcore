@@ -1,12 +1,12 @@
-﻿using Adapter.Extensions;
-using Adapter.Models;
+﻿using InertiaAdapter.Extensions;
+using InertiaAdapter.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Adapter.Core
+namespace InertiaAdapter.Core
 {
     public class Result : IActionResult
     {

@@ -1,10 +1,10 @@
-﻿using Adapter.Interfaces;
-using Adapter.Models;
+﻿using InertiaAdapter.Interfaces;
+using InertiaAdapter.Models;
 using Microsoft.AspNetCore.Html;
 using System;
 using System.Text.Json;
 
-namespace Adapter.Core
+namespace InertiaAdapter.Core
 {
     internal class ResultFactory : IResultFactory
     {

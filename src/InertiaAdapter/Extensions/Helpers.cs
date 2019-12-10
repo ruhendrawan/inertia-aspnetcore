@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Adapter.Extensions
+namespace InertiaAdapter.Extensions
 {
     internal static class Helpers
     {

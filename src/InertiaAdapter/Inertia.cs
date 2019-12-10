@@ -1,9 +1,9 @@
-﻿using Adapter.Core;
-using Adapter.Interfaces;
+﻿using InertiaAdapter.Core;
+using InertiaAdapter.Interfaces;
 using Microsoft.AspNetCore.Html;
 using System;
 
-namespace Adapter
+namespace InertiaAdapter
 {
     public static class Inertia
     {

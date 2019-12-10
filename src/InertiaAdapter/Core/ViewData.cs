@@ -1,11 +1,11 @@
-﻿using Adapter.Extensions;
-using Adapter.Models;
+﻿using InertiaAdapter.Extensions;
+using InertiaAdapter.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using System.Collections.Generic;
 
-namespace Adapter.Core
+namespace InertiaAdapter.Core
 {
     internal class ViewData
     {

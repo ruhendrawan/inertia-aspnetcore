@@ -1,8 +1,8 @@
-﻿using Adapter.Core;
+﻿using InertiaAdapter.Core;
 using Microsoft.AspNetCore.Html;
 using System;
 
-namespace Adapter.Interfaces
+namespace InertiaAdapter.Interfaces
 {
     public interface IResultFactory
     {

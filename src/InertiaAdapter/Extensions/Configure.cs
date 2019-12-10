@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Adapter.Extensions
+namespace InertiaAdapter.Extensions
 {
     public static class Configure
     {

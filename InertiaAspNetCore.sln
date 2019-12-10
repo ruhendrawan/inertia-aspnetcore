@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{69371A59-C438-4848-8F9E-8528E8ADD8A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adapter", "src\Adapter\Adapter.csproj", "{8CB7EFC8-5898-4427-AFD8-BEF9A6232848}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{4D722129-8C37-48A9-B669-E6FE6EFEE8DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "tests\Tests\Tests.csproj", "{8477554B-BDB8-450B-9F81-E52ADA3897FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "tests\Tests\Tests.csproj", "{8477554B-BDB8-450B-9F81-E52ADA3897FB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InertiaAdapter", "src\InertiaAdapter\InertiaAdapter.csproj", "{C9EA64BA-54A6-4381-AEEA-9C256E2D0D07}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,22 +20,7 @@ Global
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8CB7EFC8-5898-4427-AFD8-BEF9A6232848}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8CB7EFC8-5898-4427-AFD8-BEF9A6232848}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8CB7EFC8-5898-4427-AFD8-BEF9A6232848}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{8CB7EFC8-5898-4427-AFD8-BEF9A6232848}.Debug|x64.Build.0 = Debug|Any CPU
-		{8CB7EFC8-5898-4427-AFD8-BEF9A6232848}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{8CB7EFC8-5898-4427-AFD8-BEF9A6232848}.Debug|x86.Build.0 = Debug|Any CPU
-		{8CB7EFC8-5898-4427-AFD8-BEF9A6232848}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8CB7EFC8-5898-4427-AFD8-BEF9A6232848}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8CB7EFC8-5898-4427-AFD8-BEF9A6232848}.Release|x64.ActiveCfg = Release|Any CPU
-		{8CB7EFC8-5898-4427-AFD8-BEF9A6232848}.Release|x64.Build.0 = Release|Any CPU
-		{8CB7EFC8-5898-4427-AFD8-BEF9A6232848}.Release|x86.ActiveCfg = Release|Any CPU
-		{8CB7EFC8-5898-4427-AFD8-BEF9A6232848}.Release|x86.Build.0 = Release|Any CPU
 		{8477554B-BDB8-450B-9F81-E52ADA3897FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8477554B-BDB8-450B-9F81-E52ADA3897FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8477554B-BDB8-450B-9F81-E52ADA3897FB}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -48,9 +33,27 @@ Global
 		{8477554B-BDB8-450B-9F81-E52ADA3897FB}.Release|x64.Build.0 = Release|Any CPU
 		{8477554B-BDB8-450B-9F81-E52ADA3897FB}.Release|x86.ActiveCfg = Release|Any CPU
 		{8477554B-BDB8-450B-9F81-E52ADA3897FB}.Release|x86.Build.0 = Release|Any CPU
+		{C9EA64BA-54A6-4381-AEEA-9C256E2D0D07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9EA64BA-54A6-4381-AEEA-9C256E2D0D07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9EA64BA-54A6-4381-AEEA-9C256E2D0D07}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C9EA64BA-54A6-4381-AEEA-9C256E2D0D07}.Debug|x64.Build.0 = Debug|Any CPU
+		{C9EA64BA-54A6-4381-AEEA-9C256E2D0D07}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C9EA64BA-54A6-4381-AEEA-9C256E2D0D07}.Debug|x86.Build.0 = Debug|Any CPU
+		{C9EA64BA-54A6-4381-AEEA-9C256E2D0D07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9EA64BA-54A6-4381-AEEA-9C256E2D0D07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9EA64BA-54A6-4381-AEEA-9C256E2D0D07}.Release|x64.ActiveCfg = Release|Any CPU
+		{C9EA64BA-54A6-4381-AEEA-9C256E2D0D07}.Release|x64.Build.0 = Release|Any CPU
+		{C9EA64BA-54A6-4381-AEEA-9C256E2D0D07}.Release|x86.ActiveCfg = Release|Any CPU
+		{C9EA64BA-54A6-4381-AEEA-9C256E2D0D07}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{8CB7EFC8-5898-4427-AFD8-BEF9A6232848} = {69371A59-C438-4848-8F9E-8528E8ADD8A4}
 		{8477554B-BDB8-450B-9F81-E52ADA3897FB} = {4D722129-8C37-48A9-B669-E6FE6EFEE8DD}
+		{C9EA64BA-54A6-4381-AEEA-9C256E2D0D07} = {69371A59-C438-4848-8F9E-8528E8ADD8A4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {55124782-95FA-46EA-933B-CFB4666CD7EF}
 	EndGlobalSection
 EndGlobal

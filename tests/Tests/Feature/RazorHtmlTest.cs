@@ -1,4 +1,4 @@
-﻿using Adapter.Core;
+﻿using InertiaAdapter.Core;
 using System.Collections.Generic;
 using Xunit;
 

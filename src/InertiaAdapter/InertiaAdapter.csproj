@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <Nullable>enable</Nullable>
-    <Version>0.0.3</Version>
+    <Version>0.0.4</Version>
     <PackageId>INERTIAJS.ASPNETCORE.ADAPTER</PackageId>
     <Authors>AndySong</Authors>
     <Description>The AspNetCore adapter for Inertia.js. https://inertiajs.com</Description>
