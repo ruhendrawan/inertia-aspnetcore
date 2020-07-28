@@ -47,6 +47,12 @@ namespace InertiaAdapter.Core
             await GetResult().ExecuteResultAsync(_context);
         }
 
+        public dynamic? GetMergedPage()
+        {
+            ConstructPage();
+            return _page is null? null : Page.ToMergedProps(_page);
+        }
+
         private object InvokeIfLazy(IEnumerable<string> str) =>
             str.ToDictionary(o => o, o =>
             {
@@ -64,7 +70,9 @@ namespace InertiaAdapter.Core
         private JsonResult Json()
         {
             _context.ConfigureResponse();
-            return new JsonResult(_page);
+            return new JsonResult(
+                _page is null? null : Page.ToMergedProps(_page)
+            );
         }
 
         private void ConstructPage() => _page = new Page
@@ -72,7 +80,7 @@ namespace InertiaAdapter.Core
             Props = _props,
             Component = _component,
             Version = _version,
-            Url = _context.RequestedUri()
+            Url = _context is null? null : _context.RequestedUri()
         };
 
         private IActionResult GetResult() =>

@@ -19,7 +19,9 @@ namespace InertiaAdapter.Core
             _viewData = viewData;
 
             ViewDataDictionary =
-                new ViewDataDictionary(new EmptyModelMetadataProvider(), ac.NotNull().ModelState) { Model = page };
+                new ViewDataDictionary(new EmptyModelMetadataProvider(), ac.NotNull().ModelState) { 
+                    Model = page is null? null : Page.ToMergedProps(page)
+                };
 
             PrepareViewDataDictionary();
         }
